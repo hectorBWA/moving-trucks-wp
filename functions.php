@@ -147,6 +147,88 @@ add_action( 'wp_enqueue_scripts', 'whc_scripts' );
  */
 require get_template_directory() . '/inc/custom-header.php';
 
+
+/**
+ * Custom Post Type functions
+ */
+add_action( 'wp_enqueue_scripts', 'whc_scripts' );
+
+function whc_custom_post_type(){
+	// Services Custom Post Type
+	$serviceArgs = array(
+		'labels' => array(
+			'name' => 'Services',
+			'singular_name' => 'Service', 
+			'add_new' => 'Add Item',
+			'all_items' => 'All Items',
+			'add_new_item' => 'Add Item',
+			'edit_item' => 'Edit Item',
+			'new_item' => 'New Item',
+			'view_item' => 'View Item',
+			'search_item' => 'Search Services',
+			'not_found' => 'No Items Found',
+			'not_found_in_trash' => 'No items found in trash',
+			'parent_item_colon' => 'Parent Item'
+		),
+		'public' => true,
+		'has_archive' => true,
+		'publicly_queryable' => true,
+		'query_var' =>true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
+			'revisions',
+		),
+		'taxonomies' => array('category', 'post_tag'),
+		'exclude_from_search' => false
+	);
+	register_post_type('services', $serviceArgs);
+
+	// Products Custom Post Type
+	$productArgs = array(
+		'labels' => array(
+			'name' => 'Products',
+			'singular_name' => 'Product', 
+			'add_new' => 'Add Item',
+			'all_items' => 'All Items',
+			'add_new_item' => 'Add Item',
+			'edit_item' => 'Edit Item',
+			'new_item' => 'New Item',
+			'view_item' => 'View Item',
+			'search_item' => 'Search Products',
+			'not_found' => 'No Items Found',
+			'not_found_in_trash' => 'No items found in trash',
+			'parent_item_colon' => 'Parent Item'
+		),
+		'public' => true,
+		'has_archive' => true,
+		'publicly_queryable' => true,
+		'query_var' =>true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
+			'revisions',
+		),
+		'taxonomies' => array('category', 'post_tag'),
+		'exclude_from_search' => false
+	);
+	register_post_type('products', $productArgs);
+}
+add_action('init', 'whc_custom_post_type');
+
+
+
+
 /**
  * Custom template tags for this theme.
  */

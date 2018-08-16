@@ -22,6 +22,15 @@
 
 <body>
 
+<div class="header" style="position:fixed;">
+<a href="" class="nav">Homkke</a>
+<a href="" class="nav">About</a>
+<a href="" class="nav">Contact</a>
+</div>
 
+<div class="banner" style="padding:80px; height:80vh;">
+<p>wowuwu</p>
+<button>More info</button>
+</div>
 
 	<div id="content" class="site-content">
